@@ -83,8 +83,8 @@ These absolute results are included because several workloads do not have a dire
 
 ## Raw results
 
-- [`NativeAsmBenchmark.csv`](Benchmarks/Results/NativeAsmBenchmark.csv) - 11 core benchmark rows.
-- [`NativeAsmPracticalBenchmark.csv`](Benchmarks/Results/NativeAsmPracticalBenchmark.csv) - 192 practical benchmark rows.
+- [`NativeAsmBenchmark.csv`](BenchmarkResults/NativeAsmBenchmark.csv) - 11 core benchmark rows.
+- [`NativeAsmPracticalBenchmark.csv`](BenchmarkResults/NativeAsmPracticalBenchmark.csv) - 192 practical benchmark rows.
 
 The raw CSV files are the authoritative result snapshot. If a summary table and a CSV value ever disagree, use the CSV.
 
