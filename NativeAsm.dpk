@@ -1,0 +1,58 @@
+﻿package NativeAsm;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WEAKPACKAGEUNIT OFF}
+{$MINENUMSIZE 4}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'NativeAsm x64 JIT Assembler Library'}
+{$LIBSUFFIX AUTO}
+{$RUNONLY}
+
+// ── Required runtime packages ────────────────────────────────────────────────
+requires
+  rtl;
+
+// ── Contained units ─────────────────────────────────────────────────────────
+contains
+  NativeAsm.Types            in 'Source\NativeAsm.Types.pas',
+  NativeAsm.Encoder          in 'Source\NativeAsm.Encoder.pas',
+  NativeAsm.InstructionDB    in 'Source\NativeAsm.InstructionDB.pas',
+  NativeAsm.InstructionDB.Generated in 'Source\NativeAsm.InstructionDB.Generated.pas',
+  NativeAsm.StaticEncoder    in 'Source\NativeAsm.StaticEncoder.pas',
+  NativeAsm.Builder          in 'Source\NativeAsm.Builder.pas',
+  NativeAsm.JitAlloc         in 'Source\NativeAsm.JitAlloc.pas',
+  NativeAsm.ConstPool        in 'Source\NativeAsm.ConstPool.pas',
+  NativeAsm.Extensions       in 'Source\NativeAsm.Extensions.pas',
+  NativeAsm.Stubs            in 'Source\NativeAsm.Stubs.pas',
+  NativeAsm.Debug            in 'Source\NativeAsm.Debug.pas',
+  NativeAsm.Disassembler     in 'Source\NativeAsm.Disassembler.pas',
+  NativeAsm.Simd.Types       in 'Source\NativeAsm.Simd.Types.pas',
+  NativeAsm.Simd.Db          in 'Source\NativeAsm.Simd.Db.pas',
+  NativeAsm.Simd.Db.Generated in 'Source\NativeAsm.Simd.Db.Generated.pas',
+  NativeAsm.Simd.Encoder     in 'Source\NativeAsm.Simd.Encoder.pas',
+  NativeAsm.Simd             in 'Source\NativeAsm.Simd.pas',
+  NativeAsm.BitManip         in 'Source\NativeAsm.BitManip.pas',
+  NativeAsm.CpuFeatures      in 'Source\NativeAsm.CpuFeatures.pas',
+  NativeAsm.Abi.Win64        in 'Source\NativeAsm.Abi.Win64.pas',
+  NativeAsm.Operands         in 'Source\NativeAsm.Operands.pas',
+  NativeAsm.Rules            in 'Source\NativeAsm.Rules.pas';
+
+end.

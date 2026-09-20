@@ -1,0 +1,26 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{6C682C65-1645-4B56-A5E5-770FCF3C5D41}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Tests\NativeAsmShowcaseDUnitXTests.dproj"><Dependencies/></Projects>
+        <Projects Include="Benchmarks\Practical\NativeAsmSelfTest.dproj"><Dependencies/></Projects>
+        <Projects Include="Benchmarks\Practical\NativeAsmPracticalBenchmark.dproj"><Dependencies>Benchmarks\Practical\NativeAsmSelfTest.dproj</Dependencies></Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject><Default.Personality/></BorlandProject>
+    </ProjectExtensions>
+    <Target Name="NativeAsmShowcaseDUnitXTests"><MSBuild Projects="Tests\NativeAsmShowcaseDUnitXTests.dproj"/></Target>
+    <Target Name="NativeAsmSelfTest"><MSBuild Projects="Benchmarks\Practical\NativeAsmSelfTest.dproj"/></Target>
+    <Target Name="NativeAsmPracticalBenchmark" DependsOnTargets="NativeAsmSelfTest"><MSBuild Projects="Benchmarks\Practical\NativeAsmPracticalBenchmark.dproj"/></Target>
+    <Target Name="Build"><CallTarget Targets="NativeAsmShowcaseDUnitXTests;NativeAsmSelfTest;NativeAsmPracticalBenchmark"/></Target>
+    <Target Name="Clean">
+        <MSBuild Projects="Tests\NativeAsmShowcaseDUnitXTests.dproj" Targets="Clean"/>
+        <MSBuild Projects="Benchmarks\Practical\NativeAsmSelfTest.dproj" Targets="Clean"/>
+        <MSBuild Projects="Benchmarks\Practical\NativeAsmPracticalBenchmark.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Make"><CallTarget Targets="Build"/></Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

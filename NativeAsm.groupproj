@@ -1,0 +1,240 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E332F667-B203-44B6-B953-8444824ED0A6}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="NativeAsm.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\NativeAsmDemo.dproj">
+            <Dependencies>NativeAsm.dproj</Dependencies>
+        </Projects>
+        <Projects Include="Tests\StaticDbRegression.dproj">
+            <Dependencies>NativeAsm.dproj</Dependencies>
+        </Projects>
+        <Projects Include="Tests\NativeAsmProTests.dproj">
+            <Dependencies>NativeAsm.dproj</Dependencies>
+        </Projects>
+        <Projects Include="Tools\NativeAsmDisasm.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Tools\NativeAsmDump.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Benchmarks\NativeAsmBenchmark.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Benchmarks\NativeAsmPracticalBenchmark.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\NativeAsmGuiDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\AesBitCount\NativeAsmAesBitCountDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\Breakpoint\NativeAsmBreakpointDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\Crypto\NativeAsmCryptoDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\Disassembler\NativeAsmDisassemblerDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\InstructionMap\NativeAsmInstructionMapDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\Sha\NativeAsmShaDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Tests\NativeAsmFeatureDUnitXTests.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Tests\NativeAsmEncodingTests.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Tests\NativeAsmDUnitXTests.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="NativeAsm">
+        <MSBuild Projects="NativeAsm.dproj"/>
+    </Target>
+    <Target Name="NativeAsm:Clean">
+        <MSBuild Projects="NativeAsm.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsm:Make">
+        <MSBuild Projects="NativeAsm.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmDemo" DependsOnTargets="NativeAsm">
+        <MSBuild Projects="Demo\NativeAsmDemo.dproj"/>
+    </Target>
+    <Target Name="NativeAsmDemo:Clean" DependsOnTargets="NativeAsm:Clean">
+        <MSBuild Projects="Demo\NativeAsmDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmDemo:Make" DependsOnTargets="NativeAsm:Make">
+        <MSBuild Projects="Demo\NativeAsmDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="StaticDbRegression" DependsOnTargets="NativeAsm">
+        <MSBuild Projects="Tests\StaticDbRegression.dproj"/>
+    </Target>
+    <Target Name="StaticDbRegression:Clean" DependsOnTargets="NativeAsm:Clean">
+        <MSBuild Projects="Tests\StaticDbRegression.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="StaticDbRegression:Make" DependsOnTargets="NativeAsm:Make">
+        <MSBuild Projects="Tests\StaticDbRegression.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmProTests" DependsOnTargets="NativeAsm">
+        <MSBuild Projects="Tests\NativeAsmProTests.dproj"/>
+    </Target>
+    <Target Name="NativeAsmProTests:Clean" DependsOnTargets="NativeAsm:Clean">
+        <MSBuild Projects="Tests\NativeAsmProTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmProTests:Make" DependsOnTargets="NativeAsm:Make">
+        <MSBuild Projects="Tests\NativeAsmProTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmDisasm">
+        <MSBuild Projects="Tools\NativeAsmDisasm.dproj"/>
+    </Target>
+    <Target Name="NativeAsmDisasm:Clean">
+        <MSBuild Projects="Tools\NativeAsmDisasm.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmDisasm:Make">
+        <MSBuild Projects="Tools\NativeAsmDisasm.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmDump">
+        <MSBuild Projects="Tools\NativeAsmDump.dproj"/>
+    </Target>
+    <Target Name="NativeAsmDump:Clean">
+        <MSBuild Projects="Tools\NativeAsmDump.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmDump:Make">
+        <MSBuild Projects="Tools\NativeAsmDump.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmBenchmark">
+        <MSBuild Projects="Benchmarks\NativeAsmBenchmark.dproj"/>
+    </Target>
+    <Target Name="NativeAsmBenchmark:Clean">
+        <MSBuild Projects="Benchmarks\NativeAsmBenchmark.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmBenchmark:Make">
+        <MSBuild Projects="Benchmarks\NativeAsmBenchmark.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmPracticalBenchmark">
+        <MSBuild Projects="Benchmarks\NativeAsmPracticalBenchmark.dproj"/>
+    </Target>
+    <Target Name="NativeAsmPracticalBenchmark:Clean">
+        <MSBuild Projects="Benchmarks\NativeAsmPracticalBenchmark.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmPracticalBenchmark:Make">
+        <MSBuild Projects="Benchmarks\NativeAsmPracticalBenchmark.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmGuiDemo">
+        <MSBuild Projects="Demo\NativeAsmGuiDemo.dproj"/>
+    </Target>
+    <Target Name="NativeAsmGuiDemo:Clean">
+        <MSBuild Projects="Demo\NativeAsmGuiDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmGuiDemo:Make">
+        <MSBuild Projects="Demo\NativeAsmGuiDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmAesBitCountDemo">
+        <MSBuild Projects="Demo\AesBitCount\NativeAsmAesBitCountDemo.dproj"/>
+    </Target>
+    <Target Name="NativeAsmAesBitCountDemo:Clean">
+        <MSBuild Projects="Demo\AesBitCount\NativeAsmAesBitCountDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmAesBitCountDemo:Make">
+        <MSBuild Projects="Demo\AesBitCount\NativeAsmAesBitCountDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmBreakpointDemo">
+        <MSBuild Projects="Demo\Breakpoint\NativeAsmBreakpointDemo.dproj"/>
+    </Target>
+    <Target Name="NativeAsmBreakpointDemo:Clean">
+        <MSBuild Projects="Demo\Breakpoint\NativeAsmBreakpointDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmBreakpointDemo:Make">
+        <MSBuild Projects="Demo\Breakpoint\NativeAsmBreakpointDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmCryptoDemo">
+        <MSBuild Projects="Demo\Crypto\NativeAsmCryptoDemo.dproj"/>
+    </Target>
+    <Target Name="NativeAsmCryptoDemo:Clean">
+        <MSBuild Projects="Demo\Crypto\NativeAsmCryptoDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmCryptoDemo:Make">
+        <MSBuild Projects="Demo\Crypto\NativeAsmCryptoDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmDisassemblerDemo">
+        <MSBuild Projects="Demo\Disassembler\NativeAsmDisassemblerDemo.dproj"/>
+    </Target>
+    <Target Name="NativeAsmDisassemblerDemo:Clean">
+        <MSBuild Projects="Demo\Disassembler\NativeAsmDisassemblerDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmDisassemblerDemo:Make">
+        <MSBuild Projects="Demo\Disassembler\NativeAsmDisassemblerDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmInstructionMapDemo">
+        <MSBuild Projects="Demo\InstructionMap\NativeAsmInstructionMapDemo.dproj"/>
+    </Target>
+    <Target Name="NativeAsmInstructionMapDemo:Clean">
+        <MSBuild Projects="Demo\InstructionMap\NativeAsmInstructionMapDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmInstructionMapDemo:Make">
+        <MSBuild Projects="Demo\InstructionMap\NativeAsmInstructionMapDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmShaDemo">
+        <MSBuild Projects="Demo\Sha\NativeAsmShaDemo.dproj"/>
+    </Target>
+    <Target Name="NativeAsmShaDemo:Clean">
+        <MSBuild Projects="Demo\Sha\NativeAsmShaDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmShaDemo:Make">
+        <MSBuild Projects="Demo\Sha\NativeAsmShaDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmFeatureDUnitXTests">
+        <MSBuild Projects="Tests\NativeAsmFeatureDUnitXTests.dproj"/>
+    </Target>
+    <Target Name="NativeAsmFeatureDUnitXTests:Clean">
+        <MSBuild Projects="Tests\NativeAsmFeatureDUnitXTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmFeatureDUnitXTests:Make">
+        <MSBuild Projects="Tests\NativeAsmFeatureDUnitXTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmEncodingTests">
+        <MSBuild Projects="Tests\NativeAsmEncodingTests.dproj"/>
+    </Target>
+    <Target Name="NativeAsmEncodingTests:Clean">
+        <MSBuild Projects="Tests\NativeAsmEncodingTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmEncodingTests:Make">
+        <MSBuild Projects="Tests\NativeAsmEncodingTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmDUnitXTests">
+        <MSBuild Projects="Tests\NativeAsmDUnitXTests.dproj"/>
+    </Target>
+    <Target Name="NativeAsmDUnitXTests:Clean">
+        <MSBuild Projects="Tests\NativeAsmDUnitXTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmDUnitXTests:Make">
+        <MSBuild Projects="Tests\NativeAsmDUnitXTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="NativeAsm;NativeAsmDemo;StaticDbRegression;NativeAsmProTests;NativeAsmDisasm;NativeAsmDump;NativeAsmBenchmark;NativeAsmPracticalBenchmark;NativeAsmGuiDemo;NativeAsmAesBitCountDemo;NativeAsmBreakpointDemo;NativeAsmCryptoDemo;NativeAsmDisassemblerDemo;NativeAsmInstructionMapDemo;NativeAsmShaDemo;NativeAsmFeatureDUnitXTests;NativeAsmEncodingTests;NativeAsmDUnitXTests"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="NativeAsm:Clean;NativeAsmDemo:Clean;StaticDbRegression:Clean;NativeAsmProTests:Clean;NativeAsmDisasm:Clean;NativeAsmDump:Clean;NativeAsmBenchmark:Clean;NativeAsmPracticalBenchmark:Clean;NativeAsmGuiDemo:Clean;NativeAsmAesBitCountDemo:Clean;NativeAsmBreakpointDemo:Clean;NativeAsmCryptoDemo:Clean;NativeAsmDisassemblerDemo:Clean;NativeAsmInstructionMapDemo:Clean;NativeAsmShaDemo:Clean;NativeAsmFeatureDUnitXTests:Clean;NativeAsmEncodingTests:Clean;NativeAsmDUnitXTests:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="NativeAsm:Make;NativeAsmDemo:Make;StaticDbRegression:Make;NativeAsmProTests:Make;NativeAsmDisasm:Make;NativeAsmDump:Make;NativeAsmBenchmark:Make;NativeAsmPracticalBenchmark:Make;NativeAsmGuiDemo:Make;NativeAsmAesBitCountDemo:Make;NativeAsmBreakpointDemo:Make;NativeAsmCryptoDemo:Make;NativeAsmDisassemblerDemo:Make;NativeAsmInstructionMapDemo:Make;NativeAsmShaDemo:Make;NativeAsmFeatureDUnitXTests:Make;NativeAsmEncodingTests:Make;NativeAsmDUnitXTests:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,19 @@
+{
+  "source_sha256": "0bc3fde0376e3c7db93ce1fa6da35b9d69b868db738e60dba382a2bee54d1f48",
+  "expanded_forms": 338,
+  "mnemonics": 275,
+  "extensions": {
+    "SSE": 60,
+    "SSE2": 151,
+    "SSE3": 10,
+    "SSSE3": 32,
+    "SSE4_1": 49,
+    "SSE4_2": 10,
+    "SSE4A": 6,
+    "AESNI": 6,
+    "SHA": 7,
+    "LZCNT": 3,
+    "BMI": 3,
+    "PCLMULQDQ": 1
+  }
+}
