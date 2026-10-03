@@ -727,16 +727,6 @@ class function TAsmBuilder.LabelKey(ID: Integer): string;
 
 begin
 
-  // Use a null-character prefix so this key can NEVER collide with a
-
-  // user-provided string label.  String literals in Pascal cannot contain
-
-  // #0 unless the programmer embeds it explicitly with the #0 escape; no
-
-  // reasonable label name would start with a null byte.
-
-  // Old prefix '#' was the bug: Label_('#1') silently aliased integer label 1.
-
   Result := #0 + IntToStr(ID);
 
 end;

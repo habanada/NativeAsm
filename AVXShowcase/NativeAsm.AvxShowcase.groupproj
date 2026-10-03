@@ -1,0 +1,23 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A410EEC5-F975-4684-A609-AD00A17CB380}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="NativeAsmAvxShowcase.dproj"><Dependencies/></Projects>
+        <Projects Include="Tests\NativeAsmAvxShowcaseDUnitXTests.dproj"><Dependencies/></Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject><Default.Personality/></BorlandProject>
+    </ProjectExtensions>
+    <Target Name="NativeAsmAvxShowcase"><MSBuild Projects="NativeAsmAvxShowcase.dproj"/></Target>
+    <Target Name="NativeAsmAvxShowcaseDUnitXTests"><MSBuild Projects="Tests\NativeAsmAvxShowcaseDUnitXTests.dproj"/></Target>
+    <Target Name="Build"><CallTarget Targets="NativeAsmAvxShowcase;NativeAsmAvxShowcaseDUnitXTests"/></Target>
+    <Target Name="Clean">
+        <MSBuild Projects="NativeAsmAvxShowcase.dproj" Targets="Clean"/>
+        <MSBuild Projects="Tests\NativeAsmAvxShowcaseDUnitXTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Make"><CallTarget Targets="Build"/></Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

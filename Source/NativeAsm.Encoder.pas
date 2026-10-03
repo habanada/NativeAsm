@@ -377,10 +377,6 @@ begin
     Exit;
   end;
 
-  // ── Guard: immediate / none operand must never reach ModRM ─────────────────
-  // An otImm or otNone operand as the r/m side means the calling encode path
-  // has a bug — no bytes should have been written yet for this instruction,
-  // so failing here prevents stream corruption.
   if RM.Kind in [otImm, otNone] then
     raise Exception.CreateFmt(
       'EmitModRMImpl: illegal r/m operand kind %d (expected otReg or otMem). ' +

@@ -487,8 +487,6 @@ begin
   if Need66 then
     Encoder.EmitRaw($66);
 
-  // LEA16 is the audited Native canonicalization: the raw AsmJit DB record
-  // contains 67, while NativeAsm uses normal 64-bit addressing + operand 66.
   if D.Raw67 and (D.NativeCanonicalization <> ncLea16Uses66) then
     Encoder.EmitRaw($67);
 end;

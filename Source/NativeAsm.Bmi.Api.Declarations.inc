@@ -1,0 +1,13 @@
+    function Andn(A0: TOperand; A1: TOperand; A2: TOperand): TAsmBuilder;
+    function Bextr(A0: TOperand; A1: TOperand; A2: TOperand): TAsmBuilder;
+    function Blsi(A0: TOperand; A1: TOperand): TAsmBuilder;
+    function Blsmsk(A0: TOperand; A1: TOperand): TAsmBuilder;
+    function Blsr(A0: TOperand; A1: TOperand): TAsmBuilder;
+    function Bzhi(A0: TOperand; A1: TOperand; A2: TOperand): TAsmBuilder;
+    function Mulx(A0: TOperand; A1: TOperand; A2: TOperand): TAsmBuilder;
+    function Pdep(A0: TOperand; A1: TOperand; A2: TOperand): TAsmBuilder;
+    function Pext(A0: TOperand; A1: TOperand; A2: TOperand): TAsmBuilder;
+    function Rorx(A0: TOperand; A1: TOperand; A2: TOperand): TAsmBuilder;
+    function Sarx(A0: TOperand; A1: TOperand; A2: TOperand): TAsmBuilder;
+    function Shlx(A0: TOperand; A1: TOperand; A2: TOperand): TAsmBuilder;
+    function Shrx(A0: TOperand; A1: TOperand; A2: TOperand): TAsmBuilder;

@@ -1,0 +1,86 @@
+source	instruction	bytes	objdump
+avx2_golden_core.s	vpaddb ymm0,ymm1,ymm2	C5 F5 FC C2	vpaddb ymm0,ymm1,ymm2
+avx2_golden_core.s	vpaddw ymm3,ymm4,ymm5	C5 DD FD DD	vpaddw ymm3,ymm4,ymm5
+avx2_golden_core.s	vpaddd ymm6,ymm7,ymm0	C5 C5 FE F0	vpaddd ymm6,ymm7,ymm0
+avx2_golden_core.s	vpaddq ymm1,ymm2,ymm3	C5 ED D4 CB	vpaddq ymm1,ymm2,ymm3
+avx2_golden_core.s	vpaddsb ymm0,ymm1,ymm2	C5 F5 EC C2	vpaddsb ymm0,ymm1,ymm2
+avx2_golden_core.s	vpaddsw ymm3,ymm4,ymm5	C5 DD ED DD	vpaddsw ymm3,ymm4,ymm5
+avx2_golden_core.s	vpaddusb ymm6,ymm7,ymm0	C5 C5 DC F0	vpaddusb ymm6,ymm7,ymm0
+avx2_golden_core.s	vpaddusw ymm1,ymm2,ymm3	C5 ED DD CB	vpaddusw ymm1,ymm2,ymm3
+avx2_golden_core.s	vpsubb ymm0,ymm1,ymm2	C5 F5 F8 C2	vpsubb ymm0,ymm1,ymm2
+avx2_golden_core.s	vpsubw ymm3,ymm4,ymm5	C5 DD F9 DD	vpsubw ymm3,ymm4,ymm5
+avx2_golden_core.s	vpsubd ymm6,ymm7,ymm0	C5 C5 FA F0	vpsubd ymm6,ymm7,ymm0
+avx2_golden_core.s	vpsubq ymm1,ymm2,ymm3	C5 ED FB CB	vpsubq ymm1,ymm2,ymm3
+avx2_golden_core.s	vpsubsb ymm0,ymm1,ymm2	C5 F5 E8 C2	vpsubsb ymm0,ymm1,ymm2
+avx2_golden_core.s	vpsubsw ymm3,ymm4,ymm5	C5 DD E9 DD	vpsubsw ymm3,ymm4,ymm5
+avx2_golden_core.s	vpsubusb ymm6,ymm7,ymm0	C5 C5 D8 F0	vpsubusb ymm6,ymm7,ymm0
+avx2_golden_core.s	vpsubusw ymm1,ymm2,ymm3	C5 ED D9 CB	vpsubusw ymm1,ymm2,ymm3
+avx2_golden_core.s	vpmaxsb ymm0,ymm1,ymm2	C4 E2 75 3C C2	vpmaxsb ymm0,ymm1,ymm2
+avx2_golden_core.s	vpmaxsd ymm3,ymm4,ymm5	C4 E2 5D 3D DD	vpmaxsd ymm3,ymm4,ymm5
+avx2_golden_core.s	vpmaxsw ymm6,ymm7,ymm0	C5 C5 EE F0	vpmaxsw ymm6,ymm7,ymm0
+avx2_golden_core.s	vpmaxub ymm1,ymm2,ymm3	C5 ED DE CB	vpmaxub ymm1,ymm2,ymm3
+avx2_golden_core.s	vpmaxud ymm4,ymm5,ymm6	C4 E2 55 3F E6	vpmaxud ymm4,ymm5,ymm6
+avx2_golden_core.s	vpmaxuw ymm7,ymm0,ymm1	C4 E2 7D 3E F9	vpmaxuw ymm7,ymm0,ymm1
+avx2_golden_core.s	vpminsb ymm0,ymm1,ymm2	C4 E2 75 38 C2	vpminsb ymm0,ymm1,ymm2
+avx2_golden_core.s	vpminsd ymm3,ymm4,ymm5	C4 E2 5D 39 DD	vpminsd ymm3,ymm4,ymm5
+avx2_golden_core.s	vpminsw ymm6,ymm7,ymm0	C5 C5 EA F0	vpminsw ymm6,ymm7,ymm0
+avx2_golden_core.s	vpminub ymm1,ymm2,ymm3	C5 ED DA CB	vpminub ymm1,ymm2,ymm3
+avx2_golden_core.s	vpminud ymm4,ymm5,ymm6	C4 E2 55 3B E6	vpminud ymm4,ymm5,ymm6
+avx2_golden_core.s	vpminuw ymm7,ymm0,ymm1	C4 E2 7D 3A F9	vpminuw ymm7,ymm0,ymm1
+avx2_golden_core.s	vpmulld ymm0,ymm1,ymm2	C4 E2 75 40 C2	vpmulld ymm0,ymm1,ymm2
+avx2_golden_core.s	vpmuldq ymm3,ymm4,ymm5	C4 E2 5D 28 DD	vpmuldq ymm3,ymm4,ymm5
+avx2_golden_core.s	vpmuludq ymm6,ymm7,ymm0	C5 C5 F4 F0	vpmuludq ymm6,ymm7,ymm0
+avx2_golden_core.s	vpmaddwd ymm1,ymm2,ymm3	C5 ED F5 CB	vpmaddwd ymm1,ymm2,ymm3
+avx2_golden_core.s	vpmaddubsw ymm4,ymm5,ymm6	C4 E2 55 04 E6	vpmaddubsw ymm4,ymm5,ymm6
+avx2_golden_core.s	vpsllvd ymm0,ymm1,ymm2	C4 E2 75 47 C2	vpsllvd ymm0,ymm1,ymm2
+avx2_golden_core.s	vpsrlvd ymm3,ymm4,ymm5	C4 E2 5D 45 DD	vpsrlvd ymm3,ymm4,ymm5
+avx2_golden_core.s	vpsravd ymm6,ymm7,ymm0	C4 E2 45 46 F0	vpsravd ymm6,ymm7,ymm0
+avx2_golden_core.s	vpsllvq ymm1,ymm2,ymm3	C4 E2 ED 47 CB	vpsllvq ymm1,ymm2,ymm3
+avx2_golden_core.s	vpsrlvq ymm4,ymm5,ymm6	C4 E2 D5 45 E6	vpsrlvq ymm4,ymm5,ymm6
+avx2_golden_core.s	vpermq ymm0,ymm1,0x1b	C4 E3 FD 00 C1 1B	vpermq ymm0,ymm1,0x1b
+avx2_golden_core.s	vpermd ymm2,ymm3,ymm4	C4 E2 65 36 D4	vpermd ymm2,ymm3,ymm4
+avx2_golden_core.s	vpermps ymm5,ymm6,ymm7	C4 E2 4D 16 EF	vpermps ymm5,ymm6,ymm7
+avx2_golden_core.s	vperm2i128 ymm0,ymm1,ymm2,0x31	C4 E3 75 46 C2 31	vperm2i128 ymm0,ymm1,ymm2,0x31
+avx2_golden_core.s	vinserti128 ymm3,ymm4,xmm5,1	C4 E3 5D 38 DD 01	vinserti128 ymm3,ymm4,xmm5,0x1
+avx2_golden_core.s	vextracti128 xmm6,ymm7,1	C4 E3 7D 39 FE 01	vextracti128 xmm6,ymm7,0x1
+avx2_golden_core.s	vpshufb ymm0,ymm1,ymm2	C4 E2 75 00 C2	vpshufb ymm0,ymm1,ymm2
+avx2_golden_core.s	vpacksswb ymm3,ymm4,ymm5	C5 DD 63 DD	vpacksswb ymm3,ymm4,ymm5
+avx2_golden_core.s	vpackssdw ymm6,ymm7,ymm0	C5 C5 6B F0	vpackssdw ymm6,ymm7,ymm0
+avx2_golden_core.s	vpackuswb ymm1,ymm2,ymm3	C5 ED 67 CB	vpackuswb ymm1,ymm2,ymm3
+avx2_golden_core.s	vpackusdw ymm4,ymm5,ymm6	C4 E2 55 2B E6	vpackusdw ymm4,ymm5,ymm6
+avx2_golden_core.s	vpunpcklbw ymm0,ymm1,ymm2	C5 F5 60 C2	vpunpcklbw ymm0,ymm1,ymm2
+avx2_golden_core.s	vpunpckhbw ymm3,ymm4,ymm5	C5 DD 68 DD	vpunpckhbw ymm3,ymm4,ymm5
+avx2_golden_core.s	vpunpcklwd ymm6,ymm7,ymm0	C5 C5 61 F0	vpunpcklwd ymm6,ymm7,ymm0
+avx2_golden_core.s	vpunpckhwd ymm1,ymm2,ymm3	C5 ED 69 CB	vpunpckhwd ymm1,ymm2,ymm3
+avx2_golden_core.s	vpmovzxbw ymm0,xmm1	C4 E2 7D 30 C1	vpmovzxbw ymm0,xmm1
+avx2_golden_core.s	vpmovsxbw ymm2,xmm3	C4 E2 7D 20 D3	vpmovsxbw ymm2,xmm3
+avx2_golden_core.s	vpmovzxbd ymm4,xmm5	C4 E2 7D 31 E5	vpmovzxbd ymm4,xmm5
+avx2_golden_core.s	vpmovsxbd ymm6,xmm7	C4 E2 7D 21 F7	vpmovsxbd ymm6,xmm7
+avx2_golden_core.s	vpbroadcastb ymm0,xmm1	C4 E2 7D 78 C1	vpbroadcastb ymm0,xmm1
+avx2_golden_core.s	vpbroadcastw ymm2,xmm3	C4 E2 7D 79 D3	vpbroadcastw ymm2,xmm3
+avx2_golden_core.s	vpbroadcastd ymm4,xmm5	C4 E2 7D 58 E5	vpbroadcastd ymm4,xmm5
+avx2_golden_core.s	vpbroadcastq ymm6,xmm7	C4 E2 7D 59 F7	vpbroadcastq ymm6,xmm7
+avx2_golden_core.s	vpmaskmovd ymm0,ymm1,[rcx+32]	C4 E2 75 8C 41 20	vpmaskmovd ymm0,ymm1,YMMWORD PTR [rcx+0x20]
+avx2_golden_core.s	vpmaskmovq [r12+64],ymm2,ymm3	C4 C2 ED 8E 5C 24 40	vpmaskmovq YMMWORD PTR [r12+0x40],ymm2,ymm3
+avx2_golden_core.s	vpgatherdd ymm0,[rcx+ymm1*4],ymm2	C4 E2 6D 90 04 89	vpgatherdd ymm0,DWORD PTR [rcx+ymm1*4],ymm2
+avx2_golden_core.s	vpgatherdq ymm3,[rdx+xmm4*4],ymm5	C4 E2 D5 90 1C A2	vpgatherdq ymm3,QWORD PTR [rdx+xmm4*4],ymm5
+avx2_golden_core.s	vpgatherqd xmm0,[r8+xmm1*8],xmm2	C4 C2 69 91 04 C8	vpgatherqd xmm0,DWORD PTR [r8+xmm1*8],xmm2
+avx2_golden_core.s	vpgatherqq ymm3,[r9+ymm4*8],ymm5	C4 C2 D5 91 1C E1	vpgatherqq ymm3,QWORD PTR [r9+ymm4*8],ymm5
+avx2_golden_extended.s	vpaddd ymm8,ymm9,ymm10	C4 41 35 FE C2	vpaddd ymm8,ymm9,ymm10
+avx2_golden_extended.s	vpshufb ymm15,ymm14,ymm13	C4 42 0D 00 FD	vpshufb ymm15,ymm14,ymm13
+avx2_golden_extended.s	vpermd ymm12,ymm11,ymm10	C4 42 25 36 E2	vpermd ymm12,ymm11,ymm10
+avx2_golden_extended.s	vpsllvd ymm9,ymm8,ymm15	C4 42 3D 47 CF	vpsllvd ymm9,ymm8,ymm15
+avx2_golden_extended.s	vpmulld ymm13,ymm14,ymm15	C4 42 0D 40 EF	vpmulld ymm13,ymm14,ymm15
+avx2_golden_extended.s	vpmaxud ymm15,ymm8,ymm9	C4 42 3D 3F F9	vpmaxud ymm15,ymm8,ymm9
+avx2_golden_extended.s	vpmovzxbw ymm12,xmm13	C4 42 7D 30 E5	vpmovzxbw ymm12,xmm13
+avx2_golden_extended.s	vpbroadcastd ymm14,DWORD PTR [r13+127]	C4 42 7D 58 75 7F	vpbroadcastd ymm14,DWORD PTR [r13+0x7f]
+avx2_golden_extended.s	vpaddd ymm0,ymm1,YMMWORD PTR [r13]	C4 C1 75 FE 45 00	vpaddd ymm0,ymm1,YMMWORD PTR [r13+0x0]
+avx2_golden_extended.s	vpaddd ymm0,ymm1,YMMWORD PTR [rbp+0]	C5 F5 FE 45 00	vpaddd ymm0,ymm1,YMMWORD PTR [rbp+0x0]
+avx2_golden_extended.s	vpaddd ymm0,ymm1,YMMWORD PTR [rsp+128]	C5 F5 FE 84 24 80 00 00 00	vpaddd ymm0,ymm1,YMMWORD PTR [rsp+0x80]
+avx2_golden_extended.s	vpaddd ymm0,ymm1,YMMWORD PTR [r12-129]	C4 C1 75 FE 84 24 7F FF FF FF	vpaddd ymm0,ymm1,YMMWORD PTR [r12-0x81]
+avx2_golden_extended.s	vpmaskmovd ymm8,ymm9,YMMWORD PTR [r12+32]	C4 42 35 8C 44 24 20	vpmaskmovd ymm8,ymm9,YMMWORD PTR [r12+0x20]
+avx2_golden_extended.s	vpmaskmovq YMMWORD PTR [r13+64],ymm10,ymm11	C4 42 AD 8E 5D 40	vpmaskmovq YMMWORD PTR [r13+0x40],ymm10,ymm11
+avx2_golden_extended.s	vpgatherdd ymm8,DWORD PTR [r12+ymm9*4+32],ymm10	C4 02 2D 90 44 8C 20	vpgatherdd ymm8,DWORD PTR [r12+ymm9*4+0x20],ymm10
+avx2_golden_extended.s	vpgatherdq ymm11,QWORD PTR [r13+xmm12*8+64],ymm14	C4 02 8D 90 5C E5 40	vpgatherdq ymm11,QWORD PTR [r13+xmm12*8+0x40],ymm14
+avx2_golden_extended.s	vpgatherqd xmm8,DWORD PTR [r12+xmm9*4+32],xmm10	C4 02 29 91 44 8C 20	vpgatherqd xmm8,DWORD PTR [r12+xmm9*4+0x20],xmm10
+avx2_golden_extended.s	vpgatherqq ymm11,QWORD PTR [r13+ymm12*8+64],ymm14	C4 02 8D 91 5C E5 40	vpgatherqq ymm11,QWORD PTR [r13+ymm12*8+0x40],ymm14

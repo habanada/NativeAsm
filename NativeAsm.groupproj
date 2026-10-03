@@ -57,6 +57,27 @@
         <Projects Include="Tests\NativeAsmDUnitXTests.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="Tests\NativeAsmAvxAudit.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Tests\NativeAsmBmiAudit.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="AVXTests\NativeAsmAvxBmiDUnitXTests.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="AVXShowcase\NativeAsmAvxShowcase.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="AVX2Test\NativeAsmAvx2ClosureDUnitXTests.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="AVX2Showcase\NativeAsmAvx2Showcase.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="AVX2Showcase\Tests\NativeAsmAvx2ShowcaseDUnitXTests.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -227,14 +248,77 @@
     <Target Name="NativeAsmDUnitXTests:Make">
         <MSBuild Projects="Tests\NativeAsmDUnitXTests.dproj" Targets="Make"/>
     </Target>
+    <Target Name="NativeAsmAvxAudit">
+        <MSBuild Projects="Tests\NativeAsmAvxAudit.dproj"/>
+    </Target>
+    <Target Name="NativeAsmAvxAudit:Clean">
+        <MSBuild Projects="Tests\NativeAsmAvxAudit.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmAvxAudit:Make">
+        <MSBuild Projects="Tests\NativeAsmAvxAudit.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmBmiAudit">
+        <MSBuild Projects="Tests\NativeAsmBmiAudit.dproj"/>
+    </Target>
+    <Target Name="NativeAsmBmiAudit:Clean">
+        <MSBuild Projects="Tests\NativeAsmBmiAudit.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmBmiAudit:Make">
+        <MSBuild Projects="Tests\NativeAsmBmiAudit.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmAvxBmiDUnitXTests">
+        <MSBuild Projects="AVXTests\NativeAsmAvxBmiDUnitXTests.dproj"/>
+    </Target>
+    <Target Name="NativeAsmAvxBmiDUnitXTests:Clean">
+        <MSBuild Projects="AVXTests\NativeAsmAvxBmiDUnitXTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmAvxBmiDUnitXTests:Make">
+        <MSBuild Projects="AVXTests\NativeAsmAvxBmiDUnitXTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmAvxShowcase">
+        <MSBuild Projects="AVXShowcase\NativeAsmAvxShowcase.dproj"/>
+    </Target>
+    <Target Name="NativeAsmAvxShowcase:Clean">
+        <MSBuild Projects="AVXShowcase\NativeAsmAvxShowcase.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmAvxShowcase:Make">
+        <MSBuild Projects="AVXShowcase\NativeAsmAvxShowcase.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmAvx2ClosureDUnitXTests">
+        <MSBuild Projects="AVX2Test\NativeAsmAvx2ClosureDUnitXTests.dproj"/>
+    </Target>
+    <Target Name="NativeAsmAvx2ClosureDUnitXTests:Clean">
+        <MSBuild Projects="AVX2Test\NativeAsmAvx2ClosureDUnitXTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmAvx2ClosureDUnitXTests:Make">
+        <MSBuild Projects="AVX2Test\NativeAsmAvx2ClosureDUnitXTests.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmAvx2Showcase">
+        <MSBuild Projects="AVX2Showcase\NativeAsmAvx2Showcase.dproj"/>
+    </Target>
+    <Target Name="NativeAsmAvx2Showcase:Clean">
+        <MSBuild Projects="AVX2Showcase\NativeAsmAvx2Showcase.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmAvx2Showcase:Make">
+        <MSBuild Projects="AVX2Showcase\NativeAsmAvx2Showcase.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NativeAsmAvx2ShowcaseDUnitXTests">
+        <MSBuild Projects="AVX2Showcase\Tests\NativeAsmAvx2ShowcaseDUnitXTests.dproj"/>
+    </Target>
+    <Target Name="NativeAsmAvx2ShowcaseDUnitXTests:Clean">
+        <MSBuild Projects="AVX2Showcase\Tests\NativeAsmAvx2ShowcaseDUnitXTests.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NativeAsmAvx2ShowcaseDUnitXTests:Make">
+        <MSBuild Projects="AVX2Showcase\Tests\NativeAsmAvx2ShowcaseDUnitXTests.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="NativeAsm;NativeAsmDemo;StaticDbRegression;NativeAsmProTests;NativeAsmDisasm;NativeAsmDump;NativeAsmBenchmark;NativeAsmPracticalBenchmark;NativeAsmGuiDemo;NativeAsmAesBitCountDemo;NativeAsmBreakpointDemo;NativeAsmCryptoDemo;NativeAsmDisassemblerDemo;NativeAsmInstructionMapDemo;NativeAsmShaDemo;NativeAsmFeatureDUnitXTests;NativeAsmEncodingTests;NativeAsmDUnitXTests"/>
+        <CallTarget Targets="NativeAsm;NativeAsmDemo;StaticDbRegression;NativeAsmProTests;NativeAsmDisasm;NativeAsmDump;NativeAsmBenchmark;NativeAsmPracticalBenchmark;NativeAsmGuiDemo;NativeAsmAesBitCountDemo;NativeAsmBreakpointDemo;NativeAsmCryptoDemo;NativeAsmDisassemblerDemo;NativeAsmInstructionMapDemo;NativeAsmShaDemo;NativeAsmFeatureDUnitXTests;NativeAsmEncodingTests;NativeAsmDUnitXTests;NativeAsmAvxAudit;NativeAsmBmiAudit;NativeAsmAvxBmiDUnitXTests;NativeAsmAvxShowcase;NativeAsmAvx2ClosureDUnitXTests;NativeAsmAvx2Showcase;NativeAsmAvx2ShowcaseDUnitXTests"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="NativeAsm:Clean;NativeAsmDemo:Clean;StaticDbRegression:Clean;NativeAsmProTests:Clean;NativeAsmDisasm:Clean;NativeAsmDump:Clean;NativeAsmBenchmark:Clean;NativeAsmPracticalBenchmark:Clean;NativeAsmGuiDemo:Clean;NativeAsmAesBitCountDemo:Clean;NativeAsmBreakpointDemo:Clean;NativeAsmCryptoDemo:Clean;NativeAsmDisassemblerDemo:Clean;NativeAsmInstructionMapDemo:Clean;NativeAsmShaDemo:Clean;NativeAsmFeatureDUnitXTests:Clean;NativeAsmEncodingTests:Clean;NativeAsmDUnitXTests:Clean"/>
+        <CallTarget Targets="NativeAsm:Clean;NativeAsmDemo:Clean;StaticDbRegression:Clean;NativeAsmProTests:Clean;NativeAsmDisasm:Clean;NativeAsmDump:Clean;NativeAsmBenchmark:Clean;NativeAsmPracticalBenchmark:Clean;NativeAsmGuiDemo:Clean;NativeAsmAesBitCountDemo:Clean;NativeAsmBreakpointDemo:Clean;NativeAsmCryptoDemo:Clean;NativeAsmDisassemblerDemo:Clean;NativeAsmInstructionMapDemo:Clean;NativeAsmShaDemo:Clean;NativeAsmFeatureDUnitXTests:Clean;NativeAsmEncodingTests:Clean;NativeAsmDUnitXTests:Clean;NativeAsmAvxAudit:Clean;NativeAsmBmiAudit:Clean;NativeAsmAvxBmiDUnitXTests:Clean;NativeAsmAvxShowcase:Clean;NativeAsmAvx2ClosureDUnitXTests:Clean;NativeAsmAvx2Showcase:Clean;NativeAsmAvx2ShowcaseDUnitXTests:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="NativeAsm:Make;NativeAsmDemo:Make;StaticDbRegression:Make;NativeAsmProTests:Make;NativeAsmDisasm:Make;NativeAsmDump:Make;NativeAsmBenchmark:Make;NativeAsmPracticalBenchmark:Make;NativeAsmGuiDemo:Make;NativeAsmAesBitCountDemo:Make;NativeAsmBreakpointDemo:Make;NativeAsmCryptoDemo:Make;NativeAsmDisassemblerDemo:Make;NativeAsmInstructionMapDemo:Make;NativeAsmShaDemo:Make;NativeAsmFeatureDUnitXTests:Make;NativeAsmEncodingTests:Make;NativeAsmDUnitXTests:Make"/>
+        <CallTarget Targets="NativeAsm:Make;NativeAsmDemo:Make;StaticDbRegression:Make;NativeAsmProTests:Make;NativeAsmDisasm:Make;NativeAsmDump:Make;NativeAsmBenchmark:Make;NativeAsmPracticalBenchmark:Make;NativeAsmGuiDemo:Make;NativeAsmAesBitCountDemo:Make;NativeAsmBreakpointDemo:Make;NativeAsmCryptoDemo:Make;NativeAsmDisassemblerDemo:Make;NativeAsmInstructionMapDemo:Make;NativeAsmShaDemo:Make;NativeAsmFeatureDUnitXTests:Make;NativeAsmEncodingTests:Make;NativeAsmDUnitXTests:Make;NativeAsmAvxAudit:Make;NativeAsmBmiAudit:Make;NativeAsmAvxBmiDUnitXTests:Make;NativeAsmAvxShowcase:Make;NativeAsmAvx2ClosureDUnitXTests:Make;NativeAsmAvx2Showcase:Make;NativeAsmAvx2ShowcaseDUnitXTests:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

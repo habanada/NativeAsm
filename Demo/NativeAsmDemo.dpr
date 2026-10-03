@@ -30,7 +30,7 @@ program NativeAsmDemo;
   10 TExecutableCode via TJitAllocator pool
   11 TConstPool — constant pool finalisation
   12 Hex dump of a small stub
-  17 V5 regression suite — negative tests (expected raises) and positive regressions:
+  17 Validation cases
        17o EmitArith reg/reg width mismatch, 17p Imul imm16 range,
        17q LoopBegin zero count, 17r VaToRva underflow, 17s TTrampoline nil,
        17t EmitGetRip non-64-bit register,
@@ -689,8 +689,6 @@ begin
   finally B.Free; end;
 end;
 
-// ── Demo 17: V5 negative tests ────────────────────────────────────────────────
-// Each sub-case EXPECTS an exception.  Failure to raise = bug.
 
 procedure CheckRaises(const Name: string; Proc: TProc);
 begin
@@ -716,7 +714,7 @@ var
   LInt : TLabel;
 begin
   Writeln;
-  Writeln('=== Demo 17: V5 negative test cases (expected exceptions) ===');
+  Writeln('=== Demo 17: validation cases ===');
 
   // ── 17a: TLabel ID=0 sentinel must be rejected by Bind ───────────────────
   CheckRaises('Bind(Default(TLabel)) raises — ID=0 is invalid sentinel',
@@ -827,11 +825,8 @@ begin
       end;
     end);
 
-  // ── 17n: POSITIVE — MOV r32, -1 must NOT raise (V4 wrongly rejected it) ──
-  // MOV EAX, -1  encodes as  B8 FF FF FF FF  (imm32 = $FFFFFFFF)
-  // CPU zero-extends: RAX = $00000000_FFFFFFFF
   Writeln;
-  Writeln('  --- positive regression for V4 MOV r32 negative-imm bug ---');
+  Writeln('  --- MOV r32 negative immediate ---');
   B := TAsmBuilder.New;
   try
     B.Mov(TOperand(EAX), TOperand(Integer(-1))).Ret;
@@ -841,9 +836,6 @@ begin
     B.Free;
   end;
 
-  // ── 17o: EmitArith reg/reg width mismatch must raise (V5 fix) ────────────
-  // Old code derived width only from Dest: Add(RAX, ECX) silently encoded as
-  // ADD RAX, RCX because REX.W promoted ECX.  Now it must raise immediately.
   CheckRaises('Add(RAX, ECX) raises — rt64 ≠ rt32 source width mismatch',
     procedure
     var LB: TAsmBuilder;
@@ -852,9 +844,6 @@ begin
       try LB.Add(TOperand(RAX), TOperand(ECX)); finally LB.Free; end;
     end);
 
-  // ── 17p: Imul 3-op imm16 out of range must raise (V5 fix) ────────────────
-  // Old code: WriteInt16(Word(40000)) silently truncated to $0D40 = 3392.
-  // Now raises before any byte is emitted.
   CheckRaises('Imul(AX, AX, 70000) raises — 70000 > 65535, out of imm16 range',
     procedure
     var LB: TAsmBuilder;
@@ -863,8 +852,6 @@ begin
       try LB.Imul(AX, AX, 70000); finally LB.Free; end;
     end);
 
-  // ── 17q: LoopBegin(reg, 0) must raise (V5 fix) ───────────────────────────
-  // Count=0 → MOV reg,0 → body executes once → DEC → $FFFF… → JNE loops 2^64 times.
   CheckRaises('LoopBegin(RDX, 0, ''lbl'') raises — zero count produces infinite loop',
     procedure
     var LSB: TSmartAsmBuilder;
@@ -873,24 +860,18 @@ begin
       try LSB.LoopBegin(RDX, 0, 'lbl'); finally LSB.Free; end;
     end);
 
-  // ── 17r: VaToRva underflow must raise (V5 fix) ───────────────────────────
-  // VA < ImageBase → delta wraps around as Cardinal underflow.  Now raises.
   CheckRaises('VaToRva(nil, $1000) raises — VA below ImageBase',
     procedure
     begin
       TPicHelper.VaToRva(nil, Pointer(NativeUInt($1000)));
     end);
 
-  // ── 17s: TTrampoline.Build with nil OriginalFn must raise (V5 fix) ────────
-  // Old code: Pointer(NativeUInt(nil) + Offset) jumped to an arbitrary low address.
   CheckRaises('TTrampoline.Build(nil, bytes) raises — OriginalFn must not be nil',
     procedure
     begin
       TTrampoline.Build(nil, [$90, $90, $90, $90, $90]);
     end);
 
-  // ── 17t: EmitGetRip with non-64-bit register must raise (V5 fix) ─────────
-  // Old CALL/POP approach had no width validation.  LEA replacement validates.
   CheckRaises('EmitGetRip(EAX) raises — destination must be a 64-bit register',
     procedure
     var LB: TAsmBuilder;
@@ -899,11 +880,8 @@ begin
       try TPicHelper.EmitGetRip(LB, EAX); finally LB.Free; end;
     end);
 
-  // ── 17u: POSITIVE — Add(EAX, $FFFFFFFF) full 32-bit bit pattern (V5 fix) ─
-  // Old code: range check was Low(Integer)..High(Integer), rejecting $FFFFFFFF.
-  // Fix: 32-bit arithmetic accepts the full 32-bit bit pattern.
   Writeln;
-  Writeln('  --- positive regression for 32-bit arith imm32 full range ---');
+  Writeln('  --- 32-bit arithmetic immediate range ---');
   B := TAsmBuilder.New;
   try
     // XOR EAX,EAX then ADD EAX,$FFFFFFFF → EAX = $FFFFFFFF (all-ones)
@@ -916,11 +894,8 @@ begin
     B.Free;
   end;
 
-  // ── 17v: POSITIVE — PushRet produces exactly 14 bytes (V5 fix) ───────────
-  // Old code: SetLength(Result,13) + Result[12]:=$C3 overwrote the last byte
-  // of the Hi32 payload.  Fix: SetLength(Result,14) + Result[13]:=$C3.
   Writeln;
-  Writeln('  --- positive regression for PushRet 14-byte size ---');
+  Writeln('  --- PushRet size ---');
   Bytes := TPicHelper.PushRet(Pointer(NativeUInt($1122334455667788)));
   CheckBool('PushRet produces exactly 14 bytes (5 PUSH imm32 + 8 MOV[RSP+4] + 1 RET)',
     Length(Bytes) = 14);
@@ -928,10 +903,8 @@ begin
   CheckBool('PushRet byte[13] = $C3 (RET opcode at correct offset)',
     (Length(Bytes) = 14) and (Bytes[13] = $C3));
 
-  // ── 17w: POSITIVE — EmitGetRip(RAX) produces 7-byte LEA [RIP+0] (V5 fix) ─
-  // Old CALL/POP was CET-unsafe and varied in size.  LEA is always exactly 7 bytes.
   Writeln;
-  Writeln('  --- positive regression for EmitGetRip LEA encoding ---');
+  Writeln('  --- EmitGetRip LEA encoding ---');
   B := TAsmBuilder.New;
   try
     TPicHelper.EmitGetRip(B, RAX);
@@ -949,11 +922,8 @@ begin
     B.Free;
   end;
 
-  // ── 17x: POSITIVE — TEST AL, imm8 must build without exception (V5 fix) ──
-  // Old code: TEST with otImm fell off the end of Test(); the immediate was never
-  // encoded.  Fix implements F6/F7 /0 encoding.
   Writeln;
-  Writeln('  --- positive regression for TEST immediate encoding ---');
+  Writeln('  --- TEST immediate encoding ---');
   B := TAsmBuilder.New;
   try
     B.Test(TOperand(AL), TOperand(Int64($FF))).Ret;
@@ -966,12 +936,8 @@ begin
     B.Free;
   end;
 
-  // ── 17y: POSITIVE — Integer label and string '#1' must NOT collide (V5 fix) ─
-  // Old LabelKey: '#' + IntToStr(1) = '#1' → same key as Label_('#1').
-  // Fix: #0 + IntToStr(1) → null-char prefix that Pascal string literals cannot
-  // produce, so the two label namespaces are permanently disjoint.
   Writeln;
-  Writeln('  --- positive regression for LabelKey null-prefix non-collision ---');
+  Writeln('  --- LabelKey namespace separation ---');
   B := TAsmBuilder.New;
   try
     // Place string label '#1' first, then bind integer label — must coexist.

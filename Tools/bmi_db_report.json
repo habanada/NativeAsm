@@ -1,0 +1,26 @@
+{
+  "source_sha256": "0bc3fde0376e3c7db93ce1fa6da35b9d69b868db738e60dba382a2bee54d1f48",
+  "forms": 26,
+  "mnemonics": 13,
+  "extensions": {
+    "BMI": 10,
+    "BMI2": 16
+  },
+  "immediate_forms": 2,
+  "selected_mnemonics": [
+    "andn",
+    "bextr",
+    "blsi",
+    "blsmsk",
+    "blsr",
+    "bzhi",
+    "mulx",
+    "pdep",
+    "pext",
+    "rorx",
+    "sarx",
+    "shlx",
+    "shrx"
+  ],
+  "existing_bmi1_mnemonic_not_duplicated": "tzcnt"
+}
